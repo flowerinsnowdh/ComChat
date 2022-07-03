@@ -3,10 +3,7 @@ package online.flowerinsnow.comchat.gui
 import online.flowerinsnow.comchat.util.DimensionUtils
 import online.flowerinsnow.comchat.util.UnicodeUtils
 import java.awt.Color
-import java.awt.event.FocusAdapter
-import java.awt.event.FocusEvent
-import java.awt.event.KeyAdapter
-import java.awt.event.KeyEvent
+import java.awt.event.*
 import javax.swing.JButton
 import javax.swing.JFrame
 import javax.swing.JPanel
@@ -180,6 +177,13 @@ class LoginGui : JFrame() {
                     serverPasswordPH.isVisible = true
                     serverPassword.isVisible = false
                 }
+            }
+        })
+
+        // 窗口调整大小后 组件重新适应窗口大小
+        this.addComponentListener(object : ComponentAdapter() {
+            override fun componentResized(e : ComponentEvent) {
+                sizeComponents()
             }
         })
     }
